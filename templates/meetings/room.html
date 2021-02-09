@@ -1,0 +1,31 @@
+{#{% extends 'meetings/base.html' %}#}
+
+
+{% block content %}
+
+    <div style="margin: auto;width: 50%">
+
+        <a href="/roomlist" style="color: blue">"返回会议室列表"</a>
+        <p></p>
+        {% if room %}
+            <div class="room_detail">
+                <h2>{{ room.room_location }} {{ room.room_name }}</h2>
+                所属小微：{{ room.room_department }}
+                负责人：{{ room.room_maintenance_name }}
+                联系方式：{{ room.room_maintenance_phone }}<p></p>
+            </div>
+
+            <hr>
+
+            <div class="book_meeting_room">
+                <input type="button" style="width: 120px;background: lightblue;" value="预定">
+            </div>
+
+        {% else %}
+            <p>会议室不存在</p>
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

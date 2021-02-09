@@ -1,0 +1,20 @@
+{% extends 'meetings/base.html' %}
+
+{% block content %}
+    欢迎使用 海尔信息产业园 S座 会议室
+
+    {% if room_list %}
+        <ul>
+            {% for room in room_list %}
+                <li><a href="/room/{{ room.id }}"
+                       style="color:blue">{{ room.room_location }}/{{ room.room_name }}</a>
+                    所属小微：{{ room.room_department }} <p></p>
+                </li>
+            {% endfor %}
+        </ul>
+
+    {% else %}
+        <p>目前无可用会议室</p>
+    {% endif %}
+
+{% endblock %}
