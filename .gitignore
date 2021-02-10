@@ -1,2 +1,9 @@
 # Project exclude paths
 /venv/
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/modules.xml
+/.idea/misc.xml
+/.idea/djangoProject.iml
+/.idea/vcs.xml
+/.idea/.gitignore
+/meetings/migrations/
