@@ -8,11 +8,55 @@
         <a href="/roomlist" style="color: blue">"返回会议室列表"</a>
         <p></p>
         {% if room %}
-            <div class="room_detail">
+            <div class="room_title">
                 <h2>{{ room.room_location }} {{ room.room_name }}</h2>
+            </div>
+            <hr>
+
+            <div class="room_detail">
+                <h3>基础信息</h3>
                 所属小微：{{ room.room_department }}
                 负责人：{{ room.room_maintenance_name }}
                 联系方式：{{ room.room_maintenance_phone }}<p></p>
+            </div>
+
+            <hr>
+
+            <div class="booking_detail">
+                <h3>预定情况</h3>
+                {#                {% if booking_list %}#}
+                {#                    <ul>#}
+                {#                        {% for book in booking_list %}#}
+                {#                            <li>#}
+                {#                                {{ book.booking_user_name }} {{ book.booking_user_phone }} {{ book.start_time }} {{ book.end_time }}#}
+                {#                                <p></p>#}
+                {#                            </li>#}
+                {#                        {% endfor %}#}
+                {#                    </ul>#}
+                {#                {% else %}#}
+                {#                    <P>暂无预定信息</P>#}
+                {#                {% endif %}#}
+
+                <table class="booking_detail_table" style="margin:auto;width:50% ">
+                    <tr>
+                        <th id="booking_user" style="margin:auto">预定人</th>
+                        <th id="booking_user_phone" style="margin:auto">联系方式</th>
+                        <th id="booking_start_time" style="margin:auto">开始时间</th>
+                        <th id="booking_end_time" style="margin:auto">结束时间</th>
+                    </tr>
+
+
+                    {% for book in booking_list %}
+                        <tr>
+                            <td>{{ book.booking_user_name }}</td>
+                            <td>{{ book.booking_user_phone }}</td>
+                            <td>{{ book.start_time }}</td>
+                            <td>{{ book.end_time }}</td>
+                        </tr>
+                    {% endfor %}
+
+                </table>
+
             </div>
 
             <hr>
