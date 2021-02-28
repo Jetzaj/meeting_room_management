@@ -4,6 +4,11 @@ from meetings.models import Room, Departments, RoomBooking
 from django.template import loader
 from datetime import datetime
 
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
+
 
 # Create your views here.
 def roomlist(request):
@@ -19,6 +24,7 @@ def roomlist(request):
 
 def detail(request, room_id):
     try:
+        logger.info("输入的会议室id %s", {room_id})
         room = Room.objects.get(pk=room_id)
         room.room_department = Departments[room.room_department][1]
 
